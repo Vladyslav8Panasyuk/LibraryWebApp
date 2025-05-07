@@ -12,6 +12,9 @@
 }
 
 <p>
+    <a asp-controller="Library" asp-action="Details" asp-route-id="@ViewBag.CurrentLibraryId" class="btn btn-secondary">Back to Library Details</a>
+</p>
+<p>
     <a asp-action="Create" asp-route-libraryId="@ViewBag.CurrentLibraryId" class="btn btn-primary">Add New Book</a>
 </p>
 <table class="table">
