@@ -5,6 +5,7 @@ namespace LibraryWebApp.Services
     public interface ILibraryService
     {
         Task<IEnumerable<Library>> GetLibrariesAsync();
+        Task<Library?> GetLibraryByIdAsync(int id);
         Task<Library?> GetLibraryByIdWithBooksAndReadersAsync(int id);
         Task CreateLibraryAsync(Library library);
         Task UpdateLibraryAsync(Library library);

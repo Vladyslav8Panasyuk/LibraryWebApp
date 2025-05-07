@@ -17,6 +17,11 @@ namespace LibraryWebApp.Services
             return await _libraryRepository.GetAllAsync();
         }
 
+        public async Task<Library?> GetLibraryByIdAsync(int id)
+        {
+            return await _libraryRepository.GetByIdAsync(id);
+        }
+
         public async Task<Library?> GetLibraryByIdWithBooksAndReadersAsync(int id)
         {
             return await _libraryRepository.GetByIdWithBooksAndReadersAsync(id);
