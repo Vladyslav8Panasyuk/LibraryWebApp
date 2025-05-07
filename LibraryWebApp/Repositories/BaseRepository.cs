@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryWebApp.Repositories
 {
-    public class BaseRepository<T> : IRepository<T> where T : class
+    public abstract class BaseRepository<T> : IRepository<T> where T : class
     {
         protected readonly ApplicationDbContext _context;
 
