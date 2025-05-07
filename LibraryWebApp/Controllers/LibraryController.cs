@@ -28,6 +28,7 @@ namespace LibraryWebApp.Controllers
             }
 
             var library = await _libraryService.GetLibraryByIdWithBooksAndReadersAsync(id.Value);
+
             if (library == null)
             {
                 return NotFound();
@@ -41,6 +42,8 @@ namespace LibraryWebApp.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateLibrary([Bind("Id,Name,Address")] Library library)
         {
             if (ModelState.IsValid)

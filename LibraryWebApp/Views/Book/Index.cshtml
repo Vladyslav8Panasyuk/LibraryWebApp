@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LibraryWebApp.Models.Book>
+
+<h1>@ViewData["Title"]</h1>
+
+@if (TempData["BookSuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["BookSuccessMessage"]</div>
+}
+@if (TempData["BookErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["BookErrorMessage"]</div>
+}
+
+<p>
+    <a asp-action="Create" asp-route-libraryId="@ViewBag.CurrentLibraryId" class="btn btn-primary">Add New Book</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-break">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td class="text-break">
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
