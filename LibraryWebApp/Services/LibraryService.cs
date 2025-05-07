@@ -35,11 +35,6 @@ namespace LibraryWebApp.Services
 
         public async Task UpdateLibraryAsync(Library library)
         {
-            var existingLibrary = await _libraryRepository.GetByIdAsync(library.Id);
-            if (existingLibrary == null)
-            {
-                throw new KeyNotFoundException($"Library with ID {library.Id} not found.");
-            }
             _libraryRepository.Update(library);
             await _libraryRepository.SaveChangesAsync();
         }

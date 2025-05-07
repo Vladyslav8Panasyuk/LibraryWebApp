@@ -30,11 +30,6 @@ namespace LibraryWebApp.Services
 
         public async Task UpdateBookAsync(Book book)
         {
-            var existingBook = await _bookRepository.GetByIdAsync(book.Id);
-            if (existingBook == null)
-            {
-                throw new KeyNotFoundException($"Book with ID {book.Id} not found.");
-            }
             _bookRepository.Update(book);
             await _bookRepository.SaveChangesAsync();
         }
