@@ -25,7 +25,8 @@
     </dl>
 </div>
 <div class="mb-3">
-    <a asp-controller="Book" asp-action="Index" asp-route-libraryId="@Model.Id" class="btn btn-primary">View Books (@(Model.Books.Count))</a>
+    <a asp-controller="Book" asp-action="Index" asp-route-libraryId="@Model.Id" class="btn btn-primary">View Books (@(Model.Books.Count))</a> |
+    <a asp-controller="Reader" asp-action="Index" asp-route-libraryId="@Model.Id" class="btn btn-primary">View Readers (@(Model.Readers.Count))</a>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a> |
