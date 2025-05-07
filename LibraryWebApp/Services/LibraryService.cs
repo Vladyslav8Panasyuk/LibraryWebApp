@@ -17,6 +17,11 @@ namespace LibraryWebApp.Services
             return await _libraryRepository.GetAllAsync();
         }
 
+        public async Task<Library?> GetLibraryByIdAsync(int id)
+        {
+            return await _libraryRepository.GetByIdAsync(id);
+        }
+
         public async Task<Library?> GetLibraryByIdWithBooksAndReadersAsync(int id)
         {
             return await _libraryRepository.GetByIdWithBooksAndReadersAsync(id);
@@ -30,11 +35,6 @@ namespace LibraryWebApp.Services
 
         public async Task UpdateLibraryAsync(Library library)
         {
-            var existingLibrary = await _libraryRepository.GetByIdAsync(library.Id);
-            if (existingLibrary == null)
-            {
-                throw new KeyNotFoundException($"Library with ID {library.Id} not found.");
-            }
             _libraryRepository.Update(library);
             await _libraryRepository.SaveChangesAsync();
         }

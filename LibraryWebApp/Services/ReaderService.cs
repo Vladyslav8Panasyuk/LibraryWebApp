@@ -30,11 +30,6 @@ namespace LibraryWebApp.Services
 
         public async Task UpdateReaderAsync(Reader reader)
         {
-            var existingReader = await _readerRepository.GetByIdAsync(reader.Id);
-            if (existingReader == null)
-            {
-                throw new KeyNotFoundException($"Reader with ID {reader.Id} not found.");
-            }
             _readerRepository.Update(reader);
             await _readerRepository.SaveChangesAsync();
         }
