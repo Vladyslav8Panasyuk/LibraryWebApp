@@ -121,11 +121,11 @@ namespace LibraryWebApp.Controllers
             }
             catch (KeyNotFoundException exception)
             {
-                TempData["ErrorMessage"] = exception;
+                TempData["ErrorMessage"] = exception.Message;
             }
             catch (InvalidOperationException exception)
             {
-                TempData["ErrorMessage"] = exception;
+                TempData["ErrorMessage"] = exception.Message;
             }
 
             return RedirectToAction(nameof(Index));
